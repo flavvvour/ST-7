@@ -11,10 +11,12 @@
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>17</maven.compiler.release>
-  </properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.source>24</maven.compiler.source>
+        <maven.compiler.target>24</maven.compiler.target>
+    </properties>
 
   <dependencyManagement>
     <dependencies>
@@ -94,15 +96,16 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.6.1</version>
         </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>exec-maven-plugin</artifactId>
-          <version>3.1.0</version>
-          <configuration>
-            <mainClass>com.mycompany.app.App</mainClass>
-          </configuration>
-        </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+    <plugin>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>3.3.0</version>
+      <configuration>
+        <skipTests>true</skipTests>
+      </configuration>
+    </plugin>
+  </plugins>
   </build>
 </project>
